@@ -1426,10 +1426,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 @media (max-width: 768px) {
   .dropdown-menu {
-    right: 50% !important;
-    left: auto !important;
-    transform: translateX(50%) translateY(-8px) !important;
-    margin: var(--space-2) 0 0 0 !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) translateY(-8px) !important;
+    margin-top: var(--space-2) !important;
+    min-width: 180px;
   }
 }
 }
