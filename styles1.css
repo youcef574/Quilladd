@@ -168,9 +168,32 @@ h1, h2, h3, h4, h5, h6 {
 [dir="rtl"] .header-right {
     order: 1;
 }
-/* ========== Header & Menu ========== */
 
-header {
+[dir="rtl"] .section-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .form-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .input-icon {
+    left: auto;
+    right: var(--space-4);
+}
+
+[dir="rtl"] input {
+    padding-left: var(--space-4);
+    padding-right: var(--space-12);
+}
+
+[dir="rtl"] textarea {
+    padding-left: var(--space-4);
+    padding-right: var(--space-12);
+}
+
+/* ===== LAYOUT ===== */
+.header {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
@@ -244,7 +267,6 @@ header {
     position: relative;
 }
 
-/* زر القائمة */
 .menu-toggle {
     background: none;
     border: none;
@@ -261,11 +283,10 @@ header {
     background: var(--surface-hover);
 }
 
-/* القائمة المنسدلة (الافتراضية: LTR) */
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    inset-inline-end: 0; /* تصطف بمحاذاة اليمين في LTR */
+    right: 0;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
@@ -279,14 +300,12 @@ header {
     margin-top: var(--space-2);
 }
 
-/* تفعيل القائمة */
 .dropdown-menu.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-/* العناصر داخل القائمة */
 .dropdown-item {
     display: flex;
     align-items: center;
@@ -301,7 +320,7 @@ header {
     background: var(--surface-hover);
 }
 
-.dropdown-item.text-anger {
+.dropdown-item.text-danger {
     color: var(--error-600);
 }
 
@@ -310,37 +329,6 @@ header {
     background: var(--border);
     margin: var(--space-2) 0;
 }
-
-/* ========== 🎯 التعديل الخاص باللغة العربية (RTL) فقط ========== */
-[dir="rtl"] .dropdown-menu {
-    inset-inline-end: auto;
-    inset-inline-start: 0;
-}
-[dir="rtl"] .section-header {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .form-actions {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .input-icon {
-    left: auto;
-    right: var(--space-4);
-}
-
-[dir="rtl"] input {
-    padding-left: var(--space-4);
-    padding-right: var(--space-12);
-}
-
-[dir="rtl"] textarea {
-    padding-left: var(--space-4);
-    padding-right: var(--space-12);
-}
-
-/* ===== LAYOUT ===== */
-
 
 /* ===== MAIN CONTAINER ===== */
 .main-container {
@@ -619,7 +607,7 @@ header {
 }
 
 .error-message::before {
-    content: '⚠ ';
+    content: 'âš  ';
     margin-right: var(--space-1);
 }
 
@@ -952,4 +940,4 @@ header {
 /* ===== BUTTONS ===== */
 .btn {
     display: inline-flex;
-    align-items: 
+    align-items
