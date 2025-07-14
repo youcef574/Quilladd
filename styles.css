@@ -286,7 +286,8 @@ h1, h2, h3, h4, h5, h6 {
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    right: 0;
+    inset-inline-end: 0; /* بدل right: 0 */
+    /* right: 0; ← احذف هذه أو علّقها */
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
@@ -320,7 +321,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--surface-hover);
 }
 
-.dropdown-item.text-danger {
+.dropdown-item.text-anger {
     color: var(--error-600);
 }
 
