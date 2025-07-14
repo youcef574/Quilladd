@@ -15,6 +15,32 @@
     <link rel="stylesheet" href="styles.css">
     <!-- محرر Quill -->
 <link rel="stylesheet" href="quill.snow.css">
+    <style>
+/* تحسين محرري Quill: دعم RTL + إظهار الأيقونات أسفلهما */
+
+.ql-container {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding-bottom: 2.5rem; /* مسافة للأيقونة أسفل المحرر */
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.ql-editor {
+  min-height: 120px;
+  padding: 0.75rem;
+  direction: rtl;
+  text-align: right;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* تنسيق إضافي للنسخة المطورة */
+#quill-detailed .ql-editor {
+  min-height: 200px;
+}
+    </style>
 </head>
 <body>
     <!-- Header -->
