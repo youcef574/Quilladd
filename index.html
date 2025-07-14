@@ -16,29 +16,52 @@
     <!-- محرر Quill -->
 <link rel="stylesheet" href="quill.snow.css">
     <style>
-/* تحسين محرري Quill: دعم RTL + إظهار الأيقونات أسفلهما */
-
+/* 1. تأطير المحرر */
 .ql-container {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
-  padding-bottom: 2.5rem; /* مسافة للأيقونة أسفل المحرر */
   background-color: #fff;
+  padding: 0.75rem 0.75rem 2.5rem 0.75rem; /* مسافة أسفل لظهور الأيقونة */
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
 }
 
+/* 2. تنسيق المحتوى داخل المحرر */
 .ql-editor {
   min-height: 120px;
-  padding: 0.75rem;
-  direction: rtl;
-  text-align: right;
-  font-family: inherit;
   font-size: 1rem;
+  font-family: inherit;
   color: #333;
+  padding: 0.75rem;
 }
 
-/* تنسيق إضافي للنسخة المطورة */
-#quill-detailed .ql-editor {
-  min-height: 200px;
+/* 3. تنسيق مخصص حسب الاتجاه العام */
+html[dir="rtl"] .ql-editor {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="ltr"] .ql-editor {
+  direction: ltr;
+  text-align: left;
+}
+
+/* 4. إصلاح تموضع الأيقونة داخل الحقل */
+.input-container {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem; /* سيتم عكسه تلقائيًا في RTL */
+  z-index: 10;
+  color: #888;
+  pointer-events: none;
+}
+
+html[dir="ltr"] .input-icon {
+  right: auto;
+  left: 0.75rem;
 }
     </style>
 </head>
