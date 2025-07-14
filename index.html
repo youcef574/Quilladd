@@ -381,36 +381,41 @@ html[dir="rtl"] .ql-container {
     <!-- External JavaScript -->
     <script src="script.js"></script>
     <script src="quill.min.js"></script>
+<script src="quill.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const quillShort = new Quill('#quill-short', {
-        theme: 'snow',
-        placeholder: 'أدخل الوصف المختصر...',
-        modules: {
-            toolbar: [['bold', 'italic', 'underline'], [{ 'list': 'bullet' }], ['link']]
-        }
-    });
+  // محرر الوصف المختصر (أدوات بسيطة)
+  const quillShort = new Quill('#quill-short', {
+    theme: 'snow',
+    placeholder: 'أدخل الوصف المختصر...',
+    modules: {
+      toolbar: [['bold', 'italic', 'underline'], [{ 'list': 'bullet' }], ['link']]
+    }
+  });
 
-    const quillDetailed = new Quill('#quill-detailed', {
-        theme: 'snow',
-        placeholder: 'أدخل الوصف المفصل...',
-        modules: {
-            toolbar: [
-                [{ header: [1, 2, false] }],
-                ['bold', 'italic', 'underline'],
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                [{ 'align': [] }],
-                ['link'],
-                ['clean']
-            ]
-        }
-    });
+  // محرر الوصف المفصل (أدوات احترافية + صور + ألوان)
+  const quillDetailed = new Quill('#quill-detailed', {
+    theme: 'snow',
+    placeholder: 'أدخل الوصف المفصل...',
+    modules: {
+      toolbar: [
+        [{ header: [1, 2, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        [{ align: [] }],
+        [{ color: [] }, { background: [] }],
+        ['link', 'image'],
+        ['clean']
+      ]
+    }
+  });
 
-    // نسخ المحتوى إلى textarea قبل الإرسال
-    document.getElementById("productForm").addEventListener("submit", function () {
-        document.getElementById("shortDescription").value = quillShort.root.innerHTML;
-        document.getElementById("detailedDescription").value = quillDetailed.root.innerHTML;
-    });
+  // عند إرسال النموذج، انسخ محتوى المحررين إلى textarea
+  const form = document.getElementById("productForm");
+  form.addEventListener("submit", function () {
+    document.getElementById("shortDescription").value = quillShort.root.innerHTML;
+    document.getElementById("detailedDescription").value = quillDetailed.root.innerHTML;
+  });
 });
 </script>
 </body>
