@@ -16,41 +16,41 @@
     <!-- محرر Quill -->
 <link rel="stylesheet" href="quill.snow.css">
 <style>
-/* الحاوية التي بداخلها المحرر والأيقونة */
-.input-container {
-  position: relative; /* تجعل الأيقونة تتموضع داخلها */
-}
-
-/* المحرر Quill */
+/* تأطير المحرر */
 .ql-container {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   background-color: #fff;
-  padding: 0.75rem;
-  padding-bottom: 3rem; /* نترك مساحة أسفل المحرر */
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+  padding: 0.75rem;
+  padding-bottom: 3rem; /* نترك مساحة أسفل للأيقونة */
 }
 
-/* محتوى النص داخل المحرر */
+/* المحتوى داخل المحرر */
 .ql-editor {
   min-height: 120px;
   font-size: 1rem;
   font-family: inherit;
   color: #333;
-  padding: 0;
 }
 
-/* اتجاه الكتابة حسب لغة الصفحة */
+/* دعم RTL و LTR */
 html[dir="rtl"] .ql-editor {
   direction: rtl;
   text-align: right;
 }
+
 html[dir="ltr"] .ql-editor {
   direction: ltr;
   text-align: left;
 }
 
-/* الأيقونة أسفل الحقل */
+/* الحاوية التي تحتوي المحرر والأيقونة */
+.input-container {
+  position: relative;
+}
+
+/* الأيقونة التي تظهر داخل الحقل */
 .input-icon {
   position: absolute;
   bottom: 0.75rem;
@@ -60,12 +60,18 @@ html[dir="ltr"] .ql-editor {
   color: #888;
 }
 
-/* إذا كانت الصفحة بالإنجليزية */
+/* لو كانت الصفحة LTR، ضع الأيقونة يمينًا بدل يسارًا */
 html[dir="ltr"] .input-icon {
   left: auto;
   right: 0.75rem;
 }
-    </style>
+
+/* الحل النهائي للمشكل في RTL فقط */
+html[dir="rtl"] .ql-container {
+  padding-left: 0.75rem;
+  padding-right: 2.5rem; /* نترك مساحة يمين للأيقونة في RTL */
+}
+</style>
 </head>
 <body>
     <!-- Header -->
