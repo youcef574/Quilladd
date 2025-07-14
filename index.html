@@ -15,53 +15,55 @@
     <link rel="stylesheet" href="styles.css">
     <!-- محرر Quill -->
 <link rel="stylesheet" href="quill.snow.css">
-    <style>
-/* 1. تأطير المحرر */
+<style>
+/* الحاوية التي بداخلها المحرر والأيقونة */
+.input-container {
+  position: relative; /* تجعل الأيقونة تتموضع داخلها */
+}
+
+/* المحرر Quill */
 .ql-container {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   background-color: #fff;
-  padding: 0.75rem 0.75rem 2.5rem 0.75rem; /* مسافة أسفل لظهور الأيقونة */
+  padding: 0.75rem;
+  padding-bottom: 3rem; /* نترك مساحة أسفل المحرر */
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
 }
 
-/* 2. تنسيق المحتوى داخل المحرر */
+/* محتوى النص داخل المحرر */
 .ql-editor {
   min-height: 120px;
   font-size: 1rem;
   font-family: inherit;
   color: #333;
-  padding: 0.75rem;
+  padding: 0;
 }
 
-/* 3. تنسيق مخصص حسب الاتجاه العام */
+/* اتجاه الكتابة حسب لغة الصفحة */
 html[dir="rtl"] .ql-editor {
   direction: rtl;
   text-align: right;
 }
-
 html[dir="ltr"] .ql-editor {
   direction: ltr;
   text-align: left;
 }
 
-/* 4. إصلاح تموضع الأيقونة داخل الحقل */
-.input-container {
-  position: relative;
-}
-
+/* الأيقونة أسفل الحقل */
 .input-icon {
   position: absolute;
   bottom: 0.75rem;
-  right: 0.75rem; /* سيتم عكسه تلقائيًا في RTL */
+  left: 0.75rem;
   z-index: 10;
-  color: #888;
   pointer-events: none;
+  color: #888;
 }
 
+/* إذا كانت الصفحة بالإنجليزية */
 html[dir="ltr"] .input-icon {
-  right: auto;
-  left: 0.75rem;
+  left: auto;
+  right: 0.75rem;
 }
     </style>
 </head>
