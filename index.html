@@ -16,6 +16,16 @@
     <!-- محرر Quill -->
 <link rel="stylesheet" href="quill.snow.css">
 <style>
+    /* حواف المحرر بالكامل */
+.ql-container {
+  border-radius: 0.75rem !important;  /* يجعل الحواف ناعمة */
+  overflow: hidden; /* يجعل الحواف تنطبق حتى على شريط الأدوات */
+}
+
+/* محتوى النص نفسه داخل المحرر */
+.ql-editor {
+  border-radius: 0.75rem !important;  /* احتياطيًا إذا ظهر تأثير حواف غير مكتمل */
+}
 /* تأطير المحرر */
 .ql-container {
   border: 1px solid #ccc;
