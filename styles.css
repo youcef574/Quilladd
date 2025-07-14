@@ -286,7 +286,6 @@ h1, h2, h3, h4, h5, h6 {
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    right: 0;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
@@ -298,6 +297,11 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition-normal);
     z-index: 100;
     margin-top: var(--space-2);
+    
+    /* الوضع الافتراضي: يظهر في الجهة اليسرى */
+    right: 100%;
+    left: auto;
+    transform: translateX(-10px);
 }
 
 .dropdown-menu.active {
@@ -319,7 +323,6 @@ h1, h2, h3, h4, h5, h6 {
 .dropdown-item:hover {
     background: var(--surface-hover);
 }
-
 .dropdown-item.text-danger {
     color: var(--error-600);
 }
